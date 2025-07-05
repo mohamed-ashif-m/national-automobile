@@ -1,0 +1,151 @@
+/* Global dark theme */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* For particle positioning */
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Animated background particles */
+.background-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevent interaction with particles */
+  z-index: -1; /* Place behind content */
+}
+
+.particle {
+  position: absolute;
+  background: rgba(0, 255, 255, 0.2); /* Cyan particles with low opacity */
+  border-radius: 50%;
+  animation: float-loop 30s infinite linear; /* Slower animation */
+  opacity: 0.3;
+  overflow: hidden;
+}
+
+/* Varied particle sizes, positions, and animation properties */
+.particle:nth-child(1) { width: 12px; height: 12px; left: 5%;top:23%; animation-duration: 35s; animation-delay: 0s; }
+.particle:nth-child(2) { width: 8px; height: 8px; left: 15%;top:76%; animation-duration: 40s; animation-delay: 5ms; opacity: 0.4; }
+.particle:nth-child(3) { width: 15px; height: 15px; left: 25%;top:50%; animation-duration: 32s; animation-delay: 1ms; }
+.particle:nth-child(4) { width: 10px; height: 10px; left: 35%;top:10%; animation-duration: 38s; animation-delay: 1ms; opacity: 0.5; }
+.particle:nth-child(5) { width: 14px; height: 14px; left: 45%;top:80%; animation-duration: 36s; animation-delay: 2ms; }
+.particle:nth-child(6) { width: 9px; height: 9px; left: 55%;top:30%; animation-duration: 33s; animation-delay: 2ms; opacity: 0.3; }
+.particle:nth-child(7) { width: 11px; height: 11px; left: 65%;top:60%; animation-duration: 39s; animation-delay: 3ms; }
+.particle:nth-child(8) { width: 13px; height: 13px; left: 75%; animation-duration: 34s; animation-delay: 3ms; opacity: 0.4; }
+.particle:nth-child(9) { width: 7px; height: 7px; left: 85%; animation-duration: 37s; animation-delay: 4ms; }
+.particle:nth-child(10) { width: 16px; height: 16px; left: 95%; animation-duration: 31s; animation-delay: 2ms; opacity: 0.5; }
+.particle:nth-child(11) { width: 10px; height: 10px; left: 2%; bottom: 18%; animation-duration: 37s; animation-delay: 1ms; }
+.particle:nth-child(12) { width: 13px; height: 13px; left: 28%; bottom: 42%; animation-duration: 36s; animation-delay: 2ms; opacity: 0.4; }
+.particle:nth-child(13) { width: 9px; height: 9px; left: 8%; bottom: 67%; animation-duration: 35s; animation-delay: 3ms; }
+.particle:nth-child(14) { width: 12px; height: 12px; left: 35%; bottom: 25%; animation-duration: 38s; animation-delay: 4ms; opacity: 0.5; }
+.particle:nth-child(15) { width: 8px; height: 8px; left: 43%; bottom: 53%; animation-duration: 34s; animation-delay: 5ms; }
+.particle:nth-child(16) { width: 14px; height: 14px; left: 61%; bottom: 31%; animation-duration: 39s; animation-delay: 6ms; opacity: 0.3; }
+.particle:nth-child(17) { width: 11px; height: 11px; left: 82%; bottom: 77%; animation-duration: 32s; animation-delay: 7ms; }
+.particle:nth-child(18) { width: 15px; height: 15px; left: 90%; bottom: 12%; animation-duration: 33s; animation-delay: 8ms; opacity: 0.4; }
+
+/* Seamless looping float animation */
+@keyframes float-loop {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(10px); /* Slight horizontal drift */
+    opacity: 0.3;
+  }
+}
+
+h1, h2, h3 {
+  color: #0ff;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
+}
+
+.form-title {
+  margin: 0;
+}
+
+/* Form inputs and buttons */
+input, select, button {
+  padding: 0.625rem; /* 10px at 16px base */
+  border: none;
+  margin-top: 0.625rem; /* 10px at 16px base */
+  border-radius: 5px;
+  font-size: clamp(0.875rem, 4vw, 1rem); /* Responsive font size */
+  background-color: #1f1f1f;
+  color: white;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+button {
+  background-color: #0ff;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #00cccc;
+}
+
+/* Centered Form */
+form {
+  width: 90%; /* Relative width for smaller screens */
+  max-width: 400px; /* Increased max-width for better desktop experience */
+  margin: 2rem auto;
+  background-color: #1c1c1c;
+  padding: clamp(1rem, 5vw, 2rem); /* Responsive padding */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  position: relative; /* Ensure form stays above particles */
+  z-index: 1; /* Place form above particles */
+}
+
+/* Placeholder styling */
+input::placeholder {
+  color: #aaa;
+}
+
+/* Media Queries for additional responsiveness */
+@media (max-width: 600px) {
+  form {
+    width: 95%; /* Full width on small screens */
+    padding: 1rem;
+  }
+
+  h1, h2, h3 {
+    font-size: clamp(1.25rem, 6vw, 1.5rem); /* Smaller headings on mobile */
+  }
+
+  input, select, button {
+    padding: 0.5rem;
+    font-size: clamp(0.75rem, 3.5vw, 0.875rem);
+  }
+
+  /* Reduce number of particles on small screens */
+  .particle:nth-child(n+6) {
+    display: none;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  form {
+    width: 80%; /* Slightly narrower form on tablets */
+  }
+}

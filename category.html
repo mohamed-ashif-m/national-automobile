@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | National Automobile Stocks</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/supabaseClient.js"></script>
+</head>
+<body>
+  <!-- 🌑 Transparent Dark Navbar -->
+  <header class="dashboard-header">
+    <h1>National Automobile Stocks</h1>
+    <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search products...">
+  </div>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <!-- 📂 Categories as Accordions -->
+  <div id="categoriesContainer" class="accordion-container">
+    <!-- Dynamic category sections will be inserted here by JS -->
+  </div>
+
+  <!-- ➕ Floating Add Product Button -->
+  <button id="showAddModal" class="floating-add-btn" onclick="document.getElementById('addProductModal').classList.remove('hidden')">+</button>
+
+  <!-- 🧾 Add Product Modal -->
+  <div id="addProductModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Add New Product</h2>
+      <label>Product Name *</label>
+      <input type="text" id="addProductName" required>
+
+      <label>Category *</label>
+      <input type="text" id="addCategory" required placeholder="Enter category" />
+      <label>Part Number *</label>
+      <input type="number" id="addProductCode" required>
+      <label>Stock *</label>
+      <input type="number" id="addProductStock" required>
+
+
+      <div class="modal-buttons">
+        <button id="addProductBtn">Submit</button>
+        <button id="cancelAddBtn" onclick="document.getElementById('addProductModal').classList.add('hidden')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/category.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if (!session && window.location.pathname.includes("category.html")) {
+          window.location.href = "index.html";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
