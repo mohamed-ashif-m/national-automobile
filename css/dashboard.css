@@ -1,4 +1,10 @@
 /* style.css - Dark Themed Dashboard */
+/* Prevent overflow on mobile */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 
 body {
   margin: 0;
@@ -10,6 +16,7 @@ body {
 /* Header */
 .dashboard-header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-color: #1e1e1e;
@@ -28,6 +35,7 @@ body {
   background-color: #0ff;
   color: #121212;
   padding: 0.5rem 1rem;
+  margin: 0.5rem;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -41,6 +49,7 @@ body {
 /* Search Bar */
 .search-bar {
   width: 400px;
+  margin: 0.8rem 0;
 }
 
 #searchInput {
@@ -344,4 +353,31 @@ body {
 }
 #popup-close-btn:hover {
   background-color: #00cccc;
+}
+/* Responsive Design for tables*/
+/* Responsive Table Wrapper for Mobile and Tablet */
+/* Responsive Table Wrapper for Mobile and Tablet */
+@media (max-width: 1023px) {
+
+  .accordion-container {
+    padding: 0.5rem;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    padding: 0.5rem; /* Small padding around table */
+  }
+
+  .search-table,
+  .category-table {
+    min-width: 600px; /* Keeps layout intact for scrolling */
+    margin: 0 auto;   /* Additional centering */
+  }
+
+  .search-table th,
+  .search-table td,
+  .category-table th,
+  .category-table td {
+    min-width: 120px;
+  }
 }
