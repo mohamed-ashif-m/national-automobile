@@ -33,42 +33,7 @@ body {
   overflow: hidden;
 }
 
-/* Varied particle sizes, positions, and animation properties */
-.particle:nth-child(1) { width: 12px; height: 12px; left: 5%;top:23%; animation-duration: 35s; animation-delay: 0s; }
-.particle:nth-child(2) { width: 8px; height: 8px; left: 15%;top:76%; animation-duration: 40s; animation-delay: 5ms; opacity: 0.4; }
-.particle:nth-child(3) { width: 15px; height: 15px; left: 25%;top:50%; animation-duration: 32s; animation-delay: 1ms; }
-.particle:nth-child(4) { width: 10px; height: 10px; left: 35%;top:10%; animation-duration: 38s; animation-delay: 1ms; opacity: 0.5; }
-.particle:nth-child(5) { width: 14px; height: 14px; left: 45%;top:80%; animation-duration: 36s; animation-delay: 2ms; }
-.particle:nth-child(6) { width: 9px; height: 9px; left: 55%;top:30%; animation-duration: 33s; animation-delay: 2ms; opacity: 0.3; }
-.particle:nth-child(7) { width: 11px; height: 11px; left: 65%;top:60%; animation-duration: 39s; animation-delay: 3ms; }
-.particle:nth-child(8) { width: 13px; height: 13px; left: 75%; animation-duration: 34s; animation-delay: 3ms; opacity: 0.4; }
-.particle:nth-child(9) { width: 7px; height: 7px; left: 85%; animation-duration: 37s; animation-delay: 4ms; }
-.particle:nth-child(10) { width: 16px; height: 16px; left: 95%; animation-duration: 31s; animation-delay: 2ms; opacity: 0.5; }
-.particle:nth-child(11) { width: 10px; height: 10px; left: 2%; bottom: 18%; animation-duration: 37s; animation-delay: 1ms; }
-.particle:nth-child(12) { width: 13px; height: 13px; left: 28%; bottom: 42%; animation-duration: 36s; animation-delay: 2ms; opacity: 0.4; }
-.particle:nth-child(13) { width: 9px; height: 9px; left: 8%; bottom: 67%; animation-duration: 35s; animation-delay: 3ms; }
-.particle:nth-child(14) { width: 12px; height: 12px; left: 35%; bottom: 25%; animation-duration: 38s; animation-delay: 4ms; opacity: 0.5; }
-.particle:nth-child(15) { width: 8px; height: 8px; left: 43%; bottom: 53%; animation-duration: 34s; animation-delay: 5ms; }
-.particle:nth-child(16) { width: 14px; height: 14px; left: 61%; bottom: 31%; animation-duration: 39s; animation-delay: 6ms; opacity: 0.3; }
-.particle:nth-child(17) { width: 11px; height: 11px; left: 82%; bottom: 77%; animation-duration: 32s; animation-delay: 7ms; }
-.particle:nth-child(18) { width: 15px; height: 15px; left: 90%; bottom: 12%; animation-duration: 33s; animation-delay: 8ms; opacity: 0.4; }
-
-/* Seamless looping float animation */
-@keyframes float-loop {
-  0% {
-    transform: translateY(100vh) translateX(0);
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-100vh) translateX(10px); /* Slight horizontal drift */
-    opacity: 0.3;
-  }
-}
-
-h1, h2, h3 {
+.heading-main {
   color: #0ff;
   text-align: center;
   margin: 1rem 0;
@@ -83,7 +48,7 @@ h1, h2, h3 {
 input, select, button {
   padding: 0.625rem; /* 10px at 16px base */
   border: none;
-  margin-top: 0.625rem; /* 10px at 16px base */
+  margin:6px 0;
   border-radius: 5px;
   font-size: clamp(0.875rem, 4vw, 1rem); /* Responsive font size */
   background-color: #1f1f1f;
@@ -125,27 +90,16 @@ input::placeholder {
 /* Media Queries for additional responsiveness */
 @media (max-width: 600px) {
   form {
-    width: 95%; /* Full width on small screens */
+    width: 80%; /* Full width on small screens */
     padding: 1rem;
   }
-
-  h1, h2, h3 {
-    font-size: clamp(1.25rem, 6vw, 1.5rem); /* Smaller headings on mobile */
+  .top{
+    margin-top:auto;
+    margin-bottom:auto;
   }
-
   input, select, button {
     padding: 0.5rem;
     font-size: clamp(0.75rem, 3.5vw, 0.875rem);
   }
 
-  /* Reduce number of particles on small screens */
-  .particle:nth-child(n+6) {
-    display: none;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-  form {
-    width: 80%; /* Slightly narrower form on tablets */
-  }
 }
