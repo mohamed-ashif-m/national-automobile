@@ -100,6 +100,7 @@ searchInput.addEventListener("keyup", () => {
   } else {
     // Render as table
     let tableHtml = `
+    <div class="table-wrapper">
       <table class="search-table">
       <thead>
         <tr>
@@ -241,6 +242,7 @@ function renderProducts(data) {
   let html = "";
   Object.keys(grouped).forEach(category => {
     html += `
+    <div class="table-wrapper">
       <table class="search-table">
         <thead>
           <tr>
@@ -265,6 +267,7 @@ function renderProducts(data) {
     html += `
         </tbody>
       </table>
+    </div>
     `;
   });
   categoryContainer.innerHTML = html || "<p style='color: white; text-align: center;'>No products found.</p>";
