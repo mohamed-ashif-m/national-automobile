@@ -105,8 +105,8 @@ searchInput.addEventListener("keyup", () => {
       <thead>
         <tr>
         <th>Name</th>
-        <th>Category</th>
         <th>Part Number</th>
+        <th>Category</th>
         <th>Stock</th>
         </tr>
       </thead>
@@ -116,8 +116,8 @@ searchInput.addEventListener("keyup", () => {
       tableHtml += `
       <tr class="search-row" data-id="${item.id}">
         <td>${item.name}</td>
-        <td>${item.category}</td>
         <td>${item.part_number || "0"}</td>
+        <td>${item.category}</td>
         <td>${item.stock}</td>
       </tr>
       `;
@@ -134,8 +134,8 @@ searchInput.addEventListener("keyup", () => {
         <div class="edit-container" style="display: flex; flex-direction: column; gap: 16px;">
           <div>
         <strong>Name:</strong> <span id="popup-name"></span><br>
+        <strong>Part Number:</strong> <span id="popup-part-number"></span><br>
         <strong>Category:</strong> <span id="popup-category"></span><br>
-        <strong>Part Number:</strong> <span id="popup-part-number"></span>
           </div>
           <div class="edit-stock-controls" style="display: flex;flex-direction: column; align-items: center; gap: 10px;">
             <span style="min-width: 80px;">Stock: <span id="popup-stock"></span></span>
@@ -167,8 +167,8 @@ searchInput.addEventListener("keyup", () => {
         currentEditItem = item;
         tempStock = parseInt(item.stock);
         popup.querySelector("#popup-name").textContent = item.name || "";
-        popup.querySelector("#popup-category").textContent = item.category || "";
         popup.querySelector("#popup-part-number").textContent = item.part_number || "";
+        popup.querySelector("#popup-category").textContent = item.category || "";
         popup.querySelector("#popup-stock").textContent = tempStock;
         popup.style.display = "";
       });
@@ -247,8 +247,8 @@ function renderProducts(data) {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Category</th>
             <th>Part Number</th>
+            <th>Category</th>
             <th>Stock</th>
           </tr>
         </thead>
@@ -258,8 +258,8 @@ function renderProducts(data) {
       html += `
         <tr>
           <td>${item.name}</td>
-          <td>${item.category}</td>
           <td>${item.part_number || "0"}</td>
+          <td>${item.category}</td>
           <td>${item.stock}</td>
         </tr>
       `;

@@ -378,6 +378,14 @@ body {
   .search-table td,
   .category-table th,
   .category-table td {
-    min-width: 120px;
+    min-width: 80px;
   }
+}
+/* Fix the Category column width */
+.search-table td:nth-child(2),
+.search-table th:nth-child(2) {
+  width: 40px;
+  max-width: 40px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
