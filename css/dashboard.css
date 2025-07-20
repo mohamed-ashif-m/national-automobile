@@ -382,10 +382,9 @@ body {
   }
 }
 /* Fix the Category column width */
-.search-table td:nth-child(2),
-.search-table th:nth-child(2) {
-  width: 40px;
-  max-width: 40px;
+.search-table td:nth-child(3),
+.search-table th:nth-child(3) {
+  width: 45px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
